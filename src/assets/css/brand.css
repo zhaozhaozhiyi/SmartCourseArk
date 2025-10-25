@@ -1,0 +1,349 @@
+/* 智课方舟品牌设计系统 */
+
+:root {
+  /* 品牌主色调 - 温暖的蓝色（专业） */
+  --brand-primary: #3B82F6;
+  --brand-primary-light: #60A5FA;
+  --brand-primary-dark: #1D4ED8;
+  --brand-primary-bg: #EFF6FF;
+  
+  /* 品牌主色调扩展 */
+  --brand-primary-1: #e0f2fe;
+  --brand-primary-2: #bfdbfe;
+  --brand-primary-3: #93c5fd;
+  --brand-primary-4: #60a5fa;
+  --brand-primary-5: #3b82f6;
+  --brand-primary-6: #2563eb;
+  --brand-primary-7: #1d4ed8;
+  --brand-primary-8: #1e40af;
+  --brand-primary-9: #1e3a8a;
+
+  /* 辅助色 - 橙色（鼓励性） */
+  --brand-secondary: #F59E0B;
+  --brand-secondary-light: #FBBF24;
+  --brand-secondary-dark: #D97706;
+  --brand-secondary-bg: #FFFBEB;
+
+  /* 功能色彩 */
+  --brand-success: #10B981;
+  --brand-success-light: #34D399;
+  --brand-success-dark: #059669;
+  --brand-success-bg: #ECFDF5;
+  --brand-accent-green: #10b981;
+
+  --brand-warning: #F59E0B;
+  --brand-warning-light: #FBBF24;
+  --brand-warning-dark: #D97706;
+  --brand-warning-bg: #FFFBEB;
+  --brand-accent-yellow: #f59e0b;
+
+  --brand-error: #EF4444;
+  --brand-error-light: #F87171;
+  --brand-error-dark: #DC2626;
+  --brand-error-bg: #FEF2F2;
+  --brand-accent-red: #ef4444;
+
+  /* 其他辅助色 */
+  --brand-accent-purple: #8b5cf6;
+  --brand-purple-bg: #f3f4f6;
+
+  --brand-info: #6B7280;
+  --brand-info-light: #9CA3AF;
+  --brand-info-dark: #4B5563;
+  --brand-info-bg: #F9FAFB;
+
+  /* 中性色彩 */
+  --brand-text-primary: #111827;
+  --brand-text-secondary: #6B7280;
+  --brand-text-tertiary: #9CA3AF;
+  --brand-text-disabled: #D1D5DB;
+
+  --brand-bg-primary: #FFFFFF;
+  --brand-bg-secondary: #F9FAFB;
+  --brand-bg-tertiary: #F3F4F6;
+  --brand-border: #E5E7EB;
+  --brand-border-light: #F3F4F6;
+
+  /* 字体 */
+  --brand-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --brand-font-size-xs: 12px;
+  --brand-font-size-sm: 14px;
+  --brand-font-size-base: 16px;
+  --brand-font-size-lg: 18px;
+  --brand-font-size-xl: 20px;
+  --brand-font-size-2xl: 24px;
+  --brand-font-size-3xl: 30px;
+  --brand-font-size-4xl: 36px;
+  --brand-font-size-5xl: 42px;
+  --brand-font-size-6xl: 48px;
+
+  /* 间距 */
+  --brand-spacing-xs: 4px;
+  --brand-spacing-sm: 8px;
+  --brand-spacing-base: 16px;
+  --brand-spacing-lg: 24px;
+  --brand-spacing-xl: 32px;
+  --brand-spacing-2xl: 48px;
+  --brand-spacing-3xl: 64px;
+
+  /* 圆角 */
+  --brand-radius-sm: 4px;
+  --brand-radius-base: 8px;
+  --brand-radius-lg: 12px;
+  --brand-radius-xl: 16px;
+  --brand-radius-2xl: 24px;
+
+  /* 阴影 */
+  --brand-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --brand-shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --brand-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --brand-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* 品牌按钮样式 */
+.brand-btn-primary {
+  background-color: var(--brand-primary);
+  color: white;
+  border: none;
+  border-radius: var(--brand-radius-base);
+  padding: var(--brand-spacing-sm) var(--brand-spacing-base);
+  font-size: var(--brand-font-size-sm);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.brand-btn-primary:hover {
+  background-color: var(--brand-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--brand-shadow-lg);
+}
+
+.brand-btn-secondary {
+  background-color: var(--brand-secondary);
+  color: white;
+  border: none;
+  border-radius: var(--brand-radius-base);
+  padding: var(--brand-spacing-sm) var(--brand-spacing-base);
+  font-size: var(--brand-font-size-sm);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.brand-btn-secondary:hover {
+  background-color: var(--brand-secondary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--brand-shadow-lg);
+}
+
+/* 品牌卡片样式 */
+.brand-card {
+  background-color: var(--brand-bg-primary);
+  border-radius: var(--brand-radius-lg);
+  box-shadow: var(--brand-shadow-base);
+  border: 1px solid var(--brand-border-light);
+  transition: all 0.2s ease;
+}
+
+.brand-card:hover {
+  box-shadow: var(--brand-shadow-lg);
+  transform: translateY(-2px);
+}
+
+.brand-card-header {
+  padding: var(--brand-spacing-lg);
+  border-bottom: 1px solid var(--brand-border);
+}
+
+.brand-card-body {
+  padding: var(--brand-spacing-lg);
+}
+
+.brand-card-footer {
+  padding: var(--brand-spacing-lg);
+  border-top: 1px solid var(--brand-border);
+  background-color: var(--brand-bg-secondary);
+  border-radius: 0 0 var(--brand-radius-lg) var(--brand-radius-lg);
+}
+
+/* 品牌表单样式 */
+.brand-form-item {
+  margin-bottom: var(--brand-spacing-lg);
+}
+
+.brand-form-label {
+  display: block;
+  font-size: var(--brand-font-size-sm);
+  font-weight: 500;
+  color: var(--brand-text-primary);
+  margin-bottom: var(--brand-spacing-sm);
+}
+
+.brand-form-input {
+  width: 100%;
+  padding: var(--brand-spacing-sm) var(--brand-spacing-base);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--brand-radius-base);
+  font-size: var(--brand-font-size-sm);
+  transition: all 0.2s ease;
+  background-color: var(--brand-bg-primary);
+}
+
+.brand-form-input:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px var(--brand-primary-bg);
+}
+
+.brand-form-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: var(--brand-spacing-sm) var(--brand-spacing-base);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--brand-radius-base);
+  font-size: var(--brand-font-size-sm);
+  font-family: var(--brand-font-family);
+  resize: vertical;
+  transition: all 0.2s ease;
+  background-color: var(--brand-bg-primary);
+}
+
+.brand-form-textarea:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px var(--brand-primary-bg);
+}
+
+/* 品牌徽章样式 */
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--brand-spacing-xs) var(--brand-spacing-sm);
+  border-radius: var(--brand-radius-sm);
+  font-size: var(--brand-font-size-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.brand-badge-primary {
+  background-color: var(--brand-primary-bg);
+  color: var(--brand-primary);
+}
+
+.brand-badge-success {
+  background-color: var(--brand-success-bg);
+  color: var(--brand-success);
+}
+
+.brand-badge-warning {
+  background-color: var(--brand-warning-bg);
+  color: var(--brand-warning);
+}
+
+.brand-badge-error {
+  background-color: var(--brand-error-bg);
+  color: var(--brand-error);
+}
+
+/* 品牌进度条样式 */
+.brand-progress {
+  width: 100%;
+  height: 8px;
+  background-color: var(--brand-bg-tertiary);
+  border-radius: var(--brand-radius-sm);
+  overflow: hidden;
+}
+
+.brand-progress-bar {
+  height: 100%;
+  background-color: var(--brand-primary);
+  transition: width 0.3s ease;
+  border-radius: var(--brand-radius-sm);
+}
+
+/* 品牌加载动画 */
+.brand-loading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--brand-border);
+  border-top: 2px solid var(--brand-primary);
+  border-radius: 50%;
+  animation: brand-spin 1s linear infinite;
+}
+
+@keyframes brand-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 品牌图标样式 */
+.brand-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.brand-icon-sm {
+  width: 16px;
+  height: 16px;
+}
+
+.brand-icon-lg {
+  width: 24px;
+  height: 24px;
+}
+
+/* 品牌文字样式 */
+.brand-text-primary {
+  color: var(--brand-text-primary);
+}
+
+.brand-text-secondary {
+  color: var(--brand-text-secondary);
+}
+
+.brand-text-tertiary {
+  color: var(--brand-text-tertiary);
+}
+
+.brand-text-disabled {
+  color: var(--brand-text-disabled);
+}
+
+/* 品牌背景样式 */
+.brand-bg-primary {
+  background-color: var(--brand-bg-primary);
+}
+
+.brand-bg-secondary {
+  background-color: var(--brand-bg-secondary);
+}
+
+.brand-bg-tertiary {
+  background-color: var(--brand-bg-tertiary);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  :root {
+    --brand-spacing-base: 12px;
+    --brand-spacing-lg: 16px;
+    --brand-spacing-xl: 24px;
+    --brand-font-size-base: 15px;
+    --brand-font-size-lg: 17px;
+    --brand-font-size-xl: 19px;
+    --brand-font-size-2xl: 22px;
+    --brand-font-size-3xl: 26px;
+    --brand-font-size-4xl: 30px;
+    --brand-font-size-5xl: 34px;
+    --brand-font-size-6xl: 40px;
+  }
+}

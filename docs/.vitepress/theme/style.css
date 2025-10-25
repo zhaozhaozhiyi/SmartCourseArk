@@ -1,0 +1,209 @@
+/* 智课方舟品牌主题样式 */
+
+/* 品牌色彩变量 */
+:root {
+  /* 主色调 - 温暖的蓝色（专业） */
+  --vp-c-brand-1: #3B82F6;
+  --vp-c-brand-2: #60A5FA;
+  --vp-c-brand-3: #1D4ED8;
+  --vp-c-brand-soft: #EFF6FF;
+  
+  /* 辅助色 - 橙色（鼓励性） */
+  --vp-c-accent-1: #F59E0B;
+  --vp-c-accent-2: #FBBF24;
+  --vp-c-accent-3: #D97706;
+  --vp-c-accent-soft: #FFFBEB;
+  
+  /* 功能色彩 */
+  --vp-c-success: #10B981;
+  --vp-c-warning: #F59E0B;
+  --vp-c-error: #EF4444;
+  --vp-c-info: #6B7280;
+  
+  /* 文字色彩 */
+  --vp-c-text-1: #111827;
+  --vp-c-text-2: #6B7280;
+  --vp-c-text-3: #9CA3AF;
+  
+  /* 背景色彩 */
+  --vp-c-bg: #FFFFFF;
+  --vp-c-bg-soft: #F9FAFB;
+  --vp-c-bg-mute: #F3F4F6;
+  
+  /* 边框色彩 */
+  --vp-c-border: #E5E7EB;
+  --vp-c-border-light: #F3F4F6;
+  
+  /* 字体 */
+  --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  
+  /* 间距 */
+  --vp-spacing-xs: 4px;
+  --vp-spacing-sm: 8px;
+  --vp-spacing-base: 16px;
+  --vp-spacing-lg: 24px;
+  --vp-spacing-xl: 32px;
+  
+  /* 圆角 */
+  --vp-radius-sm: 4px;
+  --vp-radius-base: 8px;
+  --vp-radius-lg: 12px;
+  --vp-radius-xl: 16px;
+}
+
+/* 暗色主题 */
+.dark {
+  --vp-c-text-1: #F9FAFB;
+  --vp-c-text-2: #D1D5DB;
+  --vp-c-text-3: #9CA3AF;
+  
+  --vp-c-bg: #111827;
+  --vp-c-bg-soft: #1F2937;
+  --vp-c-bg-mute: #374151;
+  
+  --vp-c-border: #374151;
+  --vp-c-border-light: #4B5563;
+}
+
+/* 自定义组件样式 */
+.custom-card {
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-border-light);
+  border-radius: var(--vp-radius-lg);
+  padding: var(--vp-spacing-lg);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.custom-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* 品牌按钮样式 */
+.brand-btn-primary {
+  background-color: var(--vp-c-brand-1);
+  color: white;
+  border: none;
+  border-radius: var(--vp-radius-base);
+  padding: var(--vp-spacing-sm) var(--vp-spacing-base);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.brand-btn-primary:hover {
+  background-color: var(--vp-c-brand-3);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.brand-btn-secondary {
+  background-color: var(--vp-c-accent-1);
+  color: white;
+  border: none;
+  border-radius: var(--vp-radius-base);
+  padding: var(--vp-spacing-sm) var(--vp-spacing-base);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.brand-btn-secondary:hover {
+  background-color: var(--vp-c-accent-3);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Mermaid 图表样式 */
+.mermaid {
+  text-align: center;
+  margin: var(--vp-spacing-lg) 0;
+  background: var(--vp-c-bg-soft);
+  border-radius: var(--vp-radius-lg);
+  padding: var(--vp-spacing-lg);
+}
+
+/* 代码块样式优化 */
+.vp-doc div[class*='language-'] {
+  border-radius: var(--vp-radius-lg);
+  margin: var(--vp-spacing-lg) 0;
+}
+
+/* 表格样式优化 */
+.vp-doc table {
+  border-radius: var(--vp-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.vp-doc th {
+  background-color: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-3);
+  font-weight: 600;
+}
+
+/* 引用块样式 */
+.vp-doc blockquote {
+  border-left: 4px solid var(--vp-c-brand-1);
+  background-color: var(--vp-c-brand-soft);
+  border-radius: 0 var(--vp-radius-lg) var(--vp-radius-lg) 0;
+  padding: var(--vp-spacing-lg);
+  margin: var(--vp-spacing-lg) 0;
+}
+
+/* 导航栏样式优化 */
+.VPNav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--vp-c-border-light);
+}
+
+.dark .VPNav {
+  background: rgba(17, 24, 39, 0.95);
+}
+
+/* 侧边栏样式优化 */
+.VPSidebar {
+  background: var(--vp-c-bg-soft);
+}
+
+.VPSidebarItem .item .text {
+  color: var(--vp-c-text-2);
+  transition: color 0.2s ease;
+}
+
+.VPSidebarItem .item:hover .text {
+  color: var(--vp-c-brand-1);
+}
+
+.VPSidebarItem .item.active .text {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+
+/* 内容区域样式优化 */
+.VPContent {
+  background: var(--vp-c-bg);
+}
+
+/* 页脚样式 */
+.VPFooter {
+  background: var(--vp-c-bg-soft);
+  border-top: 1px solid var(--vp-c-border-light);
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  :root {
+    --vp-spacing-base: 12px;
+    --vp-spacing-lg: 16px;
+    --vp-spacing-xl: 24px;
+  }
+  
+  .custom-card {
+    padding: var(--vp-spacing-base);
+  }
+}

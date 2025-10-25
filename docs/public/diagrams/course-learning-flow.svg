@@ -1,0 +1,242 @@
+<svg viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg">
+  <title>课程学习流程</title>
+  <desc>展示从选择课程到完成学习的完整流程，包含学习-练习-分析的循环</desc>
+  
+  <style>
+    /* 节点动画 */
+    .node {
+      animation: fadeInUp 0.4s ease-out backwards;
+      cursor: pointer;
+    }
+    .node-1 { animation-delay: 0ms; }
+    .node-2 { animation-delay: 150ms; }
+    .node-3 { animation-delay: 300ms; }
+    .node-4 { animation-delay: 450ms; }
+    .node-5 { animation-delay: 600ms; }
+    .node-6 { animation-delay: 750ms; }
+    .node-7 { animation-delay: 900ms; }
+    .node-8 { animation-delay: 1050ms; }
+    .node-9 { animation-delay: 1200ms; }
+    .node-10 { animation-delay: 1350ms; }
+    .node-11 { animation-delay: 1500ms; }
+    .node-12 { animation-delay: 1650ms; }
+    .node-13 { animation-delay: 1800ms; }
+    .node-14 { animation-delay: 1950ms; }
+    
+    /* 连接线动画 */
+    .connector {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: drawLine 0.6s ease-out forwards;
+    }
+    .connector-1 { animation-delay: 200ms; }
+    .connector-2 { animation-delay: 350ms; }
+    .connector-3 { animation-delay: 500ms; }
+    .connector-4 { animation-delay: 650ms; }
+    .connector-5 { animation-delay: 800ms; }
+    .connector-6 { animation-delay: 950ms; }
+    .connector-7 { animation-delay: 1100ms; }
+    .connector-8 { animation-delay: 1250ms; }
+    .connector-9 { animation-delay: 1400ms; }
+    .connector-10 { animation-delay: 1550ms; }
+    .connector-11 { animation-delay: 1700ms; }
+    .connector-12 { animation-delay: 1850ms; }
+    .connector-13 { animation-delay: 2000ms; }
+    
+    /* 节点样式 */
+    .node-rect {
+      fill: #F5F5F5;
+      stroke-width: 2;
+      rx: 8;
+      transition: all 0.3s ease;
+    }
+    .node-rect:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .node-diamond {
+      fill: #F5F5F5;
+      stroke-width: 2;
+      transition: all 0.3s ease;
+    }
+    .node-diamond:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .node-text {
+      font-family: 'PingFang SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      fill: #424242;
+    }
+    
+    /* 箭头样式 */
+    .arrow {
+      fill: #757575;
+      animation: fadeInUp 0.4s ease-out backwards;
+    }
+    .arrow-1 { animation-delay: 200ms; }
+    .arrow-2 { animation-delay: 350ms; }
+    .arrow-3 { animation-delay: 500ms; }
+    .arrow-4 { animation-delay: 650ms; }
+    .arrow-5 { animation-delay: 800ms; }
+    .arrow-6 { animation-delay: 950ms; }
+    .arrow-7 { animation-delay: 1100ms; }
+    .arrow-8 { animation-delay: 1250ms; }
+    .arrow-9 { animation-delay: 1400ms; }
+    .arrow-10 { animation-delay: 1550ms; }
+    .arrow-11 { animation-delay: 1700ms; }
+    .arrow-12 { animation-delay: 1850ms; }
+    .arrow-13 { animation-delay: 2000ms; }
+    
+    /* 循环箭头 */
+    .loop-arrow {
+      fill: #1976D2;
+      animation: fadeInUp 0.4s ease-out backwards;
+    }
+    .loop-arrow-1 { animation-delay: 1400ms; }
+    .loop-arrow-2 { animation-delay: 2000ms; }
+    
+    @keyframes fadeInUp {
+      from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+    
+    @keyframes drawLine {
+      to { 
+        stroke-dashoffset: 0; 
+      }
+    }
+  </style>
+  
+  <!-- 背景 -->
+  <rect width="600" height="900" fill="#FFFFFF" />
+  
+  <!-- 连接线 -->
+  <path class="connector connector-1" d="M 300 90 L 300 130" stroke="#E0E0E0" stroke-width="2" fill="none" stroke-linecap="round" />
+  <path class="connector connector-2" d="M 300 180 L 300 220" stroke="#E0E0E0" stroke-width="2" fill="none" stroke-linecap="round" />
+  <path class="connector connector-3" d="M 300 270 L 300 310" stroke="#E0E0E0" stroke-width="2" fill="none" stroke-linecap="round" />
+  <path class="connector connector-4" d="M 300 360 L 300 400" stroke="#E0E0E0" stroke-width="2" fill="none" stroke-linecap="round" />
+  <path class="connector connector-5" d="M 300 450 L 300 490" stroke="#E0E0E0" stroke-width="2" fill="none" stroke-linecap="round" />
+  <path class="connector connector-6" d="M 300 540 L 300 580" stroke="#E0E0E0" stroke-width="2" fill="none" stroke-linecap="round" />
+  <path class="connector connector-7" d="M 300 630 L 300 670" stroke="#E0E0E0" stroke-width="2" fill="none" stroke-linecap="round" />
+  <path class="connector connector-8" d="M 300 720 L 300 760" stroke="#E0E0E0" stroke-width="2" fill="none" stroke-linecap="round" />
+  <path class="connector connector-9" d="M 300 810 L 300 850" stroke="#E0E0E0" stroke-width="2" fill="none" stroke-linecap="round" />
+  
+  <!-- 循环连接线 -->
+  <path class="connector connector-10" d="M 200 580 Q 100 580 100 400 Q 100 220 200 220" stroke="#1976D2" stroke-width="2" fill="none" stroke-linecap="round" />
+  <path class="connector connector-11" d="M 400 580 Q 500 580 500 400 Q 500 220 400 220" stroke="#1976D2" stroke-width="2" fill="none" stroke-linecap="round" />
+  
+  <!-- 箭头 -->
+  <polygon class="arrow arrow-1" points="295,125 305,125 300,135" />
+  <polygon class="arrow arrow-2" points="295,215 305,215 300,225" />
+  <polygon class="arrow arrow-3" points="295,305 305,305 300,315" />
+  <polygon class="arrow arrow-4" points="295,395 305,395 300,405" />
+  <polygon class="arrow arrow-5" points="295,485 305,485 300,495" />
+  <polygon class="arrow arrow-6" points="295,575 305,575 300,585" />
+  <polygon class="arrow arrow-7" points="295,665 305,665 300,675" />
+  <polygon class="arrow arrow-8" points="295,755 305,755 300,765" />
+  <polygon class="arrow arrow-9" points="295,845 305,845 300,855" />
+  
+  <!-- 循环箭头 -->
+  <polygon class="loop-arrow loop-arrow-1" points="195,570 185,570 190,580" />
+  <polygon class="loop-arrow loop-arrow-2" points="405,570 415,570 410,580" />
+  
+  <!-- 节点1: 选择课程 -->
+  <g class="node node-1">
+    <rect class="node-rect" x="240" y="50" width="120" height="50" stroke="#757575" />
+    <text class="node-text" x="300" y="75">选择课程</text>
+  </g>
+  
+  <!-- 节点2: 查看课程信息 -->
+  <g class="node node-2">
+    <rect class="node-rect" x="240" y="140" width="120" height="50" stroke="#757575" />
+    <text class="node-text" x="300" y="165">查看课程信息</text>
+  </g>
+  
+  <!-- 节点3: 开始学习 -->
+  <g class="node node-3">
+    <rect class="node-rect" x="240" y="230" width="120" height="50" stroke="#1976D2" />
+    <text class="node-text" x="300" y="255">开始学习</text>
+  </g>
+  
+  <!-- 节点4: 阅读章节内容 -->
+  <g class="node node-4">
+    <rect class="node-rect" x="240" y="320" width="120" height="50" stroke="#1976D2" />
+    <text class="node-text" x="300" y="345">阅读章节内容</text>
+  </g>
+  
+  <!-- 节点5: 点击练习按钮 -->
+  <g class="node node-5">
+    <rect class="node-rect" x="240" y="410" width="120" height="50" stroke="#FF9800" />
+    <text class="node-text" x="300" y="435">点击练习按钮</text>
+  </g>
+  
+  <!-- 节点6: 随机抽取题目 -->
+  <g class="node node-6">
+    <rect class="node-rect" x="240" y="500" width="120" height="50" stroke="#FF9800" />
+    <text class="node-text" x="300" y="525">随机抽取题目</text>
+  </g>
+  
+  <!-- 节点7: 完成练习题 -->
+  <g class="node node-7">
+    <rect class="node-rect" x="240" y="590" width="120" height="50" stroke="#FF9800" />
+    <text class="node-text" x="300" y="615">完成练习题</text>
+  </g>
+  
+  <!-- 节点8: 查看答案解析 -->
+  <g class="node node-8">
+    <rect class="node-rect" x="240" y="680" width="120" height="50" stroke="#4CAF50" />
+    <text class="node-text" x="300" y="705">查看答案解析</text>
+  </g>
+  
+  <!-- 节点9: 记录学习数据 -->
+  <g class="node node-9">
+    <rect class="node-rect" x="240" y="770" width="120" height="50" stroke="#4CAF50" />
+    <text class="node-text" x="300" y="795">记录学习数据</text>
+  </g>
+  
+  <!-- 节点10: 判断是否完成所有章节 -->
+  <g class="node node-10">
+    <polygon class="node-diamond" points="300,860 360,890 300,920 240,890" stroke="#1976D2" />
+    <text class="node-text" x="300" y="890">是否完成所有章节?</text>
+  </g>
+  
+  <!-- 节点11: 进入下一章节 -->
+  <g class="node node-11">
+    <rect class="node-rect" x="80" y="500" width="120" height="50" stroke="#1976D2" />
+    <text class="node-text" x="140" y="525">进入下一章节</text>
+  </g>
+  
+  <!-- 节点12: 查看学习分析 -->
+  <g class="node node-12">
+    <rect class="node-rect" x="420" y="500" width="120" height="50" stroke="#4CAF50" />
+    <text class="node-text" x="480" y="525">查看学习分析</text>
+  </g>
+  
+  <!-- 节点13: 查看学习报告 -->
+  <g class="node node-13">
+    <rect class="node-rect" x="420" y="590" width="120" height="50" stroke="#4CAF50" />
+    <text class="node-text" x="480" y="615">查看学习报告</text>
+  </g>
+  
+  <!-- 节点14: 下载课程证书 -->
+  <g class="node node-14">
+    <rect class="node-rect" x="420" y="680" width="120" height="50" stroke="#4CAF50" />
+    <text class="node-text" x="480" y="705">下载课程证书</text>
+  </g>
+  
+  <!-- 标签 -->
+  <text x="50" y="520" font-family="PingFang SC" font-size="12" fill="#1976D2">否</text>
+  <text x="550" y="520" font-family="PingFang SC" font-size="12" fill="#4CAF50">是</text>
+</svg>

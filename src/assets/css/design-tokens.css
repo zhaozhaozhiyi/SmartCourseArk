@@ -1,0 +1,311 @@
+/**
+ * 智课方舟设计令牌 (Design Tokens)
+ * 基于 UI 设计规范的颜色、字体、间距等设计变量
+ */
+
+:root {
+  /* ===== 主色调 - 蓝色系 ===== */
+  --color-primary: #1976D2;
+  --color-primary-50: #E3F2FD;
+  --color-primary-100: #BBDEFB;
+  --color-primary-200: #90CAF9;
+  --color-primary-300: #64B5F6;
+  --color-primary-400: #42A5F5;
+  --color-primary-500: #2196F3;
+  --color-primary-600: #1E88E5;
+  --color-primary-700: #1976D2;
+  --color-primary-800: #1565C0;
+  --color-primary-900: #0D47A1;
+  --color-primary-950: #0A3D91;
+
+  /* 品牌蓝色别名 */
+  --color-brand: var(--color-primary-700);
+  --color-brand-dark: var(--color-primary-800);
+  --color-brand-light: var(--color-primary-400);
+  --color-button: var(--color-primary-700);
+
+  /* ===== 功能色彩 ===== */
+  --color-success: #4CAF50;
+  --color-success-50: #E8F5E8;
+  --color-success-100: #C8E6C9;
+  --color-success-200: #A5D6A7;
+  --color-success-300: #81C784;
+  --color-success-400: #66BB6A;
+  --color-success-500: #4CAF50;
+  --color-success-600: #43A047;
+  --color-success-700: #388E3C;
+  --color-success-800: #2E7D32;
+  --color-success-900: #1B5E20;
+
+  --color-warning: #FF9800;
+  --color-warning-50: #FFF3E0;
+  --color-warning-100: #FFE0B2;
+  --color-warning-200: #FFCC80;
+  --color-warning-300: #FFB74D;
+  --color-warning-400: #FFA726;
+  --color-warning-500: #FF9800;
+  --color-warning-600: #FB8C00;
+  --color-warning-700: #F57C00;
+  --color-warning-800: #EF6C00;
+  --color-warning-900: #E65100;
+
+  --color-error: #F44336;
+  --color-error-50: #FFEBEE;
+  --color-error-100: #FFCDD2;
+  --color-error-200: #EF9A9A;
+  --color-error-300: #E57373;
+  --color-error-400: #EF5350;
+  --color-error-500: #F44336;
+  --color-error-600: #E53935;
+  --color-error-700: #D32F2F;
+  --color-error-800: #C62828;
+  --color-error-900: #B71C1C;
+
+  --color-info: #2196F3;
+  --color-info-50: #E3F2FD;
+  --color-info-100: #BBDEFB;
+  --color-info-200: #90CAF9;
+  --color-info-300: #64B5F6;
+  --color-info-400: #42A5F5;
+  --color-info-500: #2196F3;
+  --color-info-600: #1E88E5;
+  --color-info-700: #1976D2;
+  --color-info-800: #1565C0;
+  --color-info-900: #0D47A1;
+
+  /* ===== 中性色彩 ===== */
+  --color-gray-50: #FAFAFA;
+  --color-gray-100: #F5F5F5;
+  --color-gray-200: #EEEEEE;
+  --color-gray-300: #E0E0E0;
+  --color-gray-400: #BDBDBD;
+  --color-gray-500: #9E9E9E;
+  --color-gray-600: #757575;
+  --color-gray-700: #616161;
+  --color-gray-800: #424242;
+  --color-gray-900: #212121;
+
+  /* 文本颜色 */
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-600);
+  --color-text-disabled: var(--color-gray-400);
+  --color-text-placeholder: var(--color-gray-500);
+
+  /* 背景颜色 */
+  --color-background: var(--color-gray-50);
+  --color-background-card: #FFFFFF;
+  --color-background-hover: var(--color-primary-50);
+  --color-background-selected: var(--color-primary-100);
+  --color-background-disabled: var(--color-gray-100);
+
+  /* 边框颜色 */
+  --color-border: var(--color-gray-300);
+  --color-border-light: var(--color-gray-200);
+  --color-border-dark: var(--color-gray-400);
+  --color-border-focus: var(--color-primary);
+
+  /* ===== 字体规范 ===== */
+  --font-family-primary: 'PingFang SC', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+
+  /* 字体大小 */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 22px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 28px;
+  --font-size-5xl: 30px;
+  --font-size-6xl: 36px;
+  --font-size-7xl: 40px;
+  --font-size-8xl: 44px;
+  --font-size-9xl: 56px;
+
+  /* 字重 */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* 行高 */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* ===== 间距规范 ===== */
+  --spacing-0: 0;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+
+  /* ===== 圆角规范 ===== */
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-base: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-full: 9999px;
+
+  /* ===== 阴影规范 ===== */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* ===== 按钮规范 ===== */
+  --button-height-sm: 32px;
+  --button-height-base: 40px;
+  --button-height-lg: 48px;
+  --button-height-xl: 56px;
+
+  --button-padding-sm: var(--spacing-2) var(--spacing-4);
+  --button-padding-base: var(--spacing-3) var(--spacing-6);
+  --button-padding-lg: var(--spacing-4) var(--spacing-8);
+  --button-padding-xl: var(--spacing-5) var(--spacing-10);
+
+  --button-radius: var(--radius-base);
+  --button-font-weight: var(--font-weight-medium);
+
+  /* 主按钮样式 */
+  --button-primary-bg: var(--color-primary);
+  --button-primary-color: #FFFFFF;
+  --button-primary-hover-bg: var(--color-primary-800);
+  --button-primary-active-bg: var(--color-primary-900);
+  --button-primary-disabled-bg: var(--color-primary-200);
+  --button-primary-disabled-color: var(--color-gray-500);
+
+  /* 次按钮样式 */
+  --button-secondary-bg: #FFFFFF;
+  --button-secondary-color: var(--color-primary);
+  --button-secondary-border: var(--color-primary);
+  --button-secondary-hover-bg: var(--color-primary-50);
+  --button-secondary-hover-border: var(--color-primary-800);
+  --button-secondary-disabled-bg: var(--color-gray-100);
+  --button-secondary-disabled-color: var(--color-gray-500);
+  --button-secondary-disabled-border: var(--color-gray-300);
+
+  /* ===== 布局规范 ===== */
+  --container-max-width: 1200px;
+  --container-padding: var(--spacing-6);
+  --container-padding-mobile: var(--spacing-4);
+
+  --header-height: 72px;
+  --sidebar-width: 240px;
+  --sidebar-width-collapsed: 64px;
+
+  /* ===== 断点规范 ===== */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1400px;
+
+  /* ===== 动画规范 ===== */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-base: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+
+  /* ===== Z-index 规范 ===== */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 1080;
+
+  /* ===== 图标规范 ===== */
+  --icon-size-xs: 12px;
+  --icon-size-sm: 16px;
+  --icon-size-base: 20px;
+  --icon-size-lg: 24px;
+  --icon-size-xl: 32px;
+  --icon-size-2xl: 40px;
+
+  /* ===== 表单规范 ===== */
+  --input-height: 40px;
+  --input-padding: var(--spacing-3) var(--spacing-4);
+  --input-border: 1px solid var(--color-border);
+  --input-border-radius: var(--radius-base);
+  --input-focus-border: 1px solid var(--color-border-focus);
+  --input-focus-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+
+  /* ===== 卡片规范 ===== */
+  --card-padding: var(--spacing-6);
+  --card-border-radius: var(--radius-lg);
+  --card-shadow: var(--shadow-base);
+  --card-border: 1px solid var(--color-border-light);
+
+  /* ===== 菜单规范 ===== */
+  --menu-item-height: 52px;
+  --menu-item-padding: var(--spacing-3) var(--spacing-4);
+  --menu-item-border-radius: var(--radius-base);
+  --menu-item-hover-bg: var(--color-background-hover);
+  --menu-item-active-bg: var(--color-background-selected);
+  --menu-item-active-color: var(--color-primary);
+}
+
+/* 暗色主题变量 */
+[data-theme="dark"] {
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #B3B3B3;
+  --color-text-disabled: #666666;
+  --color-background: #121212;
+  --color-background-card: #1E1E1E;
+  --color-border: #333333;
+  --color-border-light: #2A2A2A;
+  --color-border-dark: #404040;
+}
+
+/* 响应式字体大小 */
+@media (max-width: 768px) {
+  :root {
+    --font-size-xs: 11px;
+    --font-size-sm: 13px;
+    --font-size-base: 15px;
+    --font-size-lg: 17px;
+    --font-size-xl: 19px;
+    --font-size-2xl: 21px;
+    --font-size-3xl: 23px;
+    --font-size-4xl: 26px;
+    --font-size-5xl: 28px;
+    --font-size-6xl: 32px;
+    --font-size-7xl: 36px;
+    --font-size-8xl: 40px;
+    --font-size-9xl: 48px;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  :root {
+    --color-primary: #000000;
+    --color-text-primary: #000000;
+    --color-background: #FFFFFF;
+    --shadow-base: none;
+    --shadow-md: none;
+    --shadow-lg: none;
+    --shadow-xl: none;
+    --shadow-2xl: none;
+  }
+}
