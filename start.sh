@@ -265,9 +265,24 @@ start_dev_server() {
     npm run dev
 }
 
+# 检查是否在正确的目录中运行
+check_directory() {
+    if [ ! -f "package.json" ]; then
+        echo -e "${RED}❌ 错误: 请在项目根目录中运行此脚本${NC}"
+        echo -e "${YELLOW}💡 请先切换到项目目录:${NC}"
+        echo -e "   ${BLUE}cd /Users/zhaoxiaogang/AIclassS${NC}"
+        echo -e "   ${BLUE}./start.sh${NC}"
+        echo ""
+        exit 1
+    fi
+}
+
 # 主函数
 main() {
     print_banner
+    
+    # 检查目录
+    check_directory
     
     # 检测操作系统
     detect_os

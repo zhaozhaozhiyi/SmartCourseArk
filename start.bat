@@ -13,6 +13,9 @@ set "BLUE=[94m"
 set "CYAN=[96m"
 set "NC=[0m"
 
+:: 检查是否在正确的目录中运行
+call :check_directory
+
 :: 打印横幅
 call :print_banner
 
@@ -31,6 +34,17 @@ call :setup_env
 :: 启动开发服务器
 call :start_dev_server
 
+goto :eof
+
+:check_directory
+if not exist "package.json" (
+    echo %RED%❌ 错误: 请在项目根目录中运行此脚本%NC%
+    echo %YELLOW%💡 请先切换到项目目录:%NC%
+    echo    %BLUE%cd /d "C:\path\to\AIclassS"%NC%
+    echo    %BLUE%start.bat%NC%
+    echo.
+    exit /b 1
+)
 goto :eof
 
 :print_banner
@@ -208,3 +222,4 @@ echo.
 
 npm run dev
 goto :eof
+

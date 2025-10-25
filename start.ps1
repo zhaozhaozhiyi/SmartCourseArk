@@ -214,8 +214,23 @@ function Start-DevServer {
     npm run dev
 }
 
+# 检查是否在正确的目录中运行
+function Test-Directory {
+    if (!(Test-Path "package.json")) {
+        Write-Host "${RED}❌ 错误: 请在项目根目录中运行此脚本${NC}"
+        Write-Host "${YELLOW}💡 请先切换到项目目录:${NC}"
+        Write-Host "   ${BLUE}cd C:\path\to\AIclassS${NC}"
+        Write-Host "   ${BLUE}.\start.ps1${NC}"
+        Write-Host ""
+        exit 1
+    }
+}
+
 # 主函数
 function Main {
+    # 检查目录
+    Test-Directory
+    
     Print-Banner
     
     # 检测操作系统
@@ -238,3 +253,4 @@ function Main {
 
 # 运行主函数
 Main
+

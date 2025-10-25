@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: "智课方舟"
-  text: "智能交互式课程创建工具"
+  text: "交互式课程创建工具"
   tagline: "基于AI技术的在线教育平台，将文本材料自动转换为结构化交互式网络课程"
   image:
     src: /boat.png
