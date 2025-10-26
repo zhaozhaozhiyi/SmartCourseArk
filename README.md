@@ -25,13 +25,43 @@
 - **状态管理**: Pinia
 - **路由管理**: Vue Router 4
 - **构建工具**: Vite
+- **单文件打包**: Go + WebView
 - **AI服务**: Kimi API (Moonshot AI)
 - **文档解析**: 支持PDF、DOC、DOCX、TXT格式
 - **样式**: SCSS + CSS Variables
 - **图标**: FontAwesome + Element Plus Icons
 
 
-## 快速开始
+## 单文件应用（推荐）
+
+智课方舟提供独立的单文件应用，无需安装任何依赖，双击即可运行：
+
+### 下载
+
+从 [GitHub Releases](https://github.com/your-repo/releases) 下载对应平台的版本：
+- **Windows**: `智课方舟_windows_amd64.exe`
+- **macOS Intel**: `智课方舟_darwin_amd64`
+- **macOS Apple Silicon**: `智课方舟_darwin_arm64`
+- **Linux**: `智课方舟_linux_amd64`
+
+### 使用
+
+1. 下载对应的可执行文件
+2. 双击运行（macOS/Linux需要先添加执行权限）
+3. 自动打开原生窗口，享受完整的应用体验
+
+### 特性
+
+- ✅ 零配置：无需安装Node.js、npm等任何依赖
+- ✅ 单文件：所有资源内嵌在可执行文件中
+- ✅ 原生窗口：使用系统原生窗口，体验更流畅
+- ✅ 自动更新：支持从GitHub Releases获取更新
+
+详细使用说明请查看 [单文件应用使用指南](docs/guide/standalone-app.md)
+
+---
+
+## 快速开始（开发模式）
 
 ### 方式一：一键启动脚本（推荐）✨
 
@@ -140,6 +170,28 @@ npm run build
 ```bash
 npm run lint
 ```
+
+#### 本地构建单文件应用
+
+**Windows**:
+```batch
+.\build_windows.bat
+```
+
+**macOS**:
+```bash
+chmod +x build_macos.sh
+./build_macos.sh
+```
+
+**使用 Make（跨平台）**:
+```bash
+make build-app    # 构建当前平台
+make build-windows # 构建Windows版本
+make build-macos   # 构建macOS版本
+```
+
+构建完成后，可执行文件位于 `release/` 目录。
 
 ## 项目结构
 

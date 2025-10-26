@@ -7,7 +7,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/AIclassS/' : '/',
+  base: '/',
   plugins: [
     vue(),
     AutoImport({
@@ -67,7 +67,7 @@ export default defineConfig({
         manualChunks: {
           'vue-vendor': ['vue', 'vue-router', 'pinia'],
           'element-plus': ['element-plus'],
-          'charts': ['echarts', '@antv/g6', '@antv/x6'],
+          'charts': ['echarts'],
           'utils': ['axios']
         }
       }

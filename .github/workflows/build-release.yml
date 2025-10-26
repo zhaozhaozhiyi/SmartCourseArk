@@ -1,0 +1,110 @@
+name: Build Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build for ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            goos: linux
+            goarch: amd64
+            ext: ""
+            name: linux_amd64
+          - os: windows-latest
+            goos: windows
+            goarch: amd64
+            ext: ".exe"
+            name: windows_amd64
+          - os: macos-latest
+            goos: darwin
+            goarch: amd64
+            ext: ""
+            name: darwin_amd64
+          - os: macos-latest
+            goos: darwin
+            goarch: arm64
+            ext: ""
+            name: darwin_arm64
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build frontend
+      run: npm run build-only
+
+    - name: Build docs
+      run: npm run build:docs
+      continue-on-error: true
+
+    - name: Setup Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.21'
+
+    - name: Install Go dependencies
+      run: go mod download
+
+    - name: Build binary
+      env:
+        CGO_ENABLED: 1
+        GOOS: ${{ matrix.goos }}
+        GOARCH: ${{ matrix.goarch }}
+      run: |
+        mkdir -p release
+        go build -ldflags="-s -w" -o release/智课方舟_${{ matrix.name }}${{ matrix.ext }} server.go
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: 智课方舟-${{ matrix.os }}-${{ matrix.goarch }}
+        path: release/智课方舟_${{ matrix.name }}${{ matrix.ext }}
+
+  release:
+    name: Create Release
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Download all artifacts
+      uses: actions/download-artifact@v4
+      with:
+        path: artifacts
+
+    - name: Extract artifacts
+      run: |
+        find artifacts -name "智课方舟_*" -type f -exec chmod +x {} \;
+        mkdir -p release
+        find artifacts -name "智课方舟_*" -type f -exec cp {} release/ \;
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          release/*
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

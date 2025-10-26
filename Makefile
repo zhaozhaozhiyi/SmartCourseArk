@@ -103,3 +103,19 @@ docs-build: ## 构建 VitePress 文档
 docs-preview: docs-build ## 预览 VitePress 文档
 	@echo "📚 预览文档..."
 	@npm run docs:preview
+
+# 构建单文件应用
+build-app: ## 构建当前平台的单文件应用
+	@echo "🏗️  构建单文件应用..."
+	@npm run build-only
+	@npm run build:docs
+	@CGO_ENABLED=1 go build -ldflags="-s -w" -o release/AIclassS_$(shell go env GOOS)_$(shell go env GOARCH) server.go
+	@echo "✅ 构建完成: release/AIclassS_$(shell go env GOOS)_$(shell go env GOARCH)"
+
+# 构建Windows应用
+build-windows: ## 构建Windows应用
+	@./build_windows.bat
+
+# 构建macOS应用
+build-macos: ## 构建macOS应用
+	@./build_macos.sh
