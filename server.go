@@ -4,11 +4,11 @@ import (
 	"embed"
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/fs"
 	"log"
 	"net"
 	"net/http"
-	"os"
 	"os/exec"
 	"runtime"
 	"strings"
@@ -19,8 +19,8 @@ import (
 //go:embed dist/*
 var staticFiles embed.FS
 
-// 嵌入VitePress文档资源
-//go:embed docs/.vitepress/dist/*
+// 嵌入VitePress文档资源（空目录，防止编译失败）
+//go:embed docs/.vitepress/dist
 var docsFiles embed.FS
 
 type ServerInfo struct {
@@ -84,9 +84,14 @@ func startServer() int {
 		log.Fatal("Failed to create static file system:", err)
 	}
 	
-	docsFsys, err := fs.Sub(docsFiles, "docs/.vitepress/dist")
-	if err != nil {
-		log.Printf("Warning: Failed to create docs file system: %v", err)
+	var docsFsys fs.FS
+	// 检查文档目录是否存在
+	if _, err := docsFiles.Open("."); err == nil {
+		docsFsys, err = fs.Sub(docsFiles, "docs/.vitepress/dist")
+		if err != nil {
+			log.Printf("Warning: Failed to create docs file system: %v", err)
+			docsFsys = nil
+		}
 	}
 	
 	// API路由
@@ -121,7 +126,12 @@ func startServer() int {
 			defer file.Close()
 			fileInfo, _ := file.Stat()
 			if !fileInfo.IsDir() {
-				http.ServeContent(w, r, path, time.Time{}, file)
+				if rs, ok := file.(io.ReadSeeker); ok {
+					http.ServeContent(w, r, path, time.Time{}, rs)
+					return
+				}
+				// Fallback to ServeFile
+				io.Copy(w, file)
 				return
 			}
 		}
@@ -135,7 +145,11 @@ func startServer() int {
 		defer index.Close()
 		
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
-		http.ServeContent(w, r, "index.html", time.Time{}, index)
+		if rs, ok := index.(io.ReadSeeker); ok {
+			http.ServeContent(w, r, "index.html", time.Time{}, rs)
+		} else {
+			io.Copy(w, index)
+		}
 	})
 	
 	// 监听随机可用端口
