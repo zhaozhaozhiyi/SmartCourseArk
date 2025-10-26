@@ -9,11 +9,10 @@ import (
 	"net"
 	"net/http"
 	"os"
+	"os/exec"
 	"runtime"
 	"strings"
 	"time"
-
-	"github.com/webview/webview"
 )
 
 // 嵌入前端构建后的静态资源
@@ -50,20 +49,32 @@ func main() {
 	// 启动HTTP服务器
 	port := startServer()
 	
-	// 创建原生窗口
-	w := webview.New(true)
-	defer w.Destroy()
-	
-	// 设置窗口属性
-	w.SetTitle("智课方舟 - 智能课程创建平台")
-	w.SetSize(1280, 800, webview.HintNone)
-	
-	// 加载前端应用
+	// 在默认浏览器中打开应用
 	url := fmt.Sprintf("http://localhost:%d", port)
-	w.Navigate(url)
+	openBrowser(url)
 	
-	// 运行窗口
-	w.Run()
+	// 保持服务器运行
+	fmt.Println("按 Ctrl+C 停止服务器")
+	select {} // 永久阻塞
+}
+
+func openBrowser(url string) {
+	var cmd *exec.Cmd
+	switch runtime.GOOS {
+	case "windows":
+		cmd = exec.Command("cmd", "/c", "start", url)
+	case "darwin":
+		cmd = exec.Command("open", url)
+	case "linux":
+		cmd = exec.Command("xdg-open", url)
+	default:
+		fmt.Printf("请手动打开浏览器访问: %s\n", url)
+		return
+	}
+	
+	if err := cmd.Start(); err != nil {
+		fmt.Printf("无法自动打开浏览器，请手动访问: %s\n", url)
+	}
 }
 
 func startServer() int {
