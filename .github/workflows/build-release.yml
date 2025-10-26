@@ -65,12 +65,19 @@ jobs:
 
     - name: Build binary
       env:
-        CGO_ENABLED: 1
+        CGO_ENABLED: 0
         GOOS: ${{ matrix.goos }}
         GOARCH: ${{ matrix.goarch }}
       run: |
         mkdir -p release
         go build -ldflags="-s -w" -o release/智课方舟_${{ matrix.name }}${{ matrix.ext }} server.go
+        if [ -f "release/智课方舟_${{ matrix.name }}${{ matrix.ext }}" ]; then
+          echo "✅ Build successful"
+          ls -lh release/
+        else
+          echo "❌ Build failed"
+          exit 1
+        fi
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
@@ -95,15 +102,19 @@ jobs:
 
     - name: Extract artifacts
       run: |
-        find artifacts -name "智课方舟_*" -type f -exec chmod +x {} \;
+        echo "Artifacts structure:"
+        find artifacts -type f -name "*" | head -20
         mkdir -p release
-        find artifacts -name "智课方舟_*" -type f -exec cp {} release/ \;
+        # Copy all files from artifacts, preserving directory structure
+        find artifacts -type f ! -name "*.md" ! -name "*.txt" -exec cp --parents {} release/ \;
+        echo "Release files:"
+        find release -type f
 
     - name: Create Release
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          release/*
+          release/**
         draft: false
         prerelease: false
       env:
